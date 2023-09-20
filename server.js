@@ -7,6 +7,10 @@ http.createServer((request, response) => {
     let addr = request.url,
         q = url.parse(addr, true),
         filePath = '';
+
+    fs.appendFile('log.txt', 'URL: ' + addr + '\nTimestamp: ' + new Date() + '\n\n', (err) => {
+        
+    })
     if (q.pathname.includes('documentation')) {
         filePath = (__dirname + '/documentation.html');
     } else {
@@ -22,7 +26,7 @@ http.createServer((request, response) => {
         response.end();
 
     });
-    
+
 }).listen(8080);
 
 console.log('My first Node test server is running on Port 8080.');
