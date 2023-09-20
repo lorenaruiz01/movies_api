@@ -7,3 +7,7 @@ http.createServer((request, response) => {
 
 console.log('My first Node test server is running on Port 8080.');
 
+
+const url = require('url');
+let addr = request.url;
+let q = url.parse(addr, true);
