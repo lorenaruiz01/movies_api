@@ -27,3 +27,5 @@ app.get('/', (req, res) => {
 app.listen(8080, () => {
     console.log('testing testing');
 });
+
+app.use(express.static('public'));
