@@ -7,6 +7,9 @@ const app = express();
 // import morgan middleware
 const morgan = require('morgan');
 
+// passes Morgan functionality into app.use() function
+app.use(morgan('common'));
+
 let top10Movies = [
     {
         title: 'movie 1',
