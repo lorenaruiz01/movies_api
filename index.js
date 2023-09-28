@@ -18,6 +18,7 @@ let top10Movies = [
     }
 ];
 
+// use middleware to log requests to the server
 let requestLogger = (req, res, next) => {
     console.log(req.url);
     next();
