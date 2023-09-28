@@ -15,3 +15,7 @@ let top10Movies = [
         director: 'Yet Another Director'
     }
 ];
+
+app.get('/movies', (req, res) => {
+    res.json(top10Movies);
+});
