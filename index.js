@@ -31,7 +31,7 @@ let requestLogger = (req, res, next) => {
     next();
 };
 
-//
+// adds a property to the request object that’s been set to the timestamp of the request
 let requestTime = (req, res, next) => {
     req.requestTime = Date.now();
     next();
