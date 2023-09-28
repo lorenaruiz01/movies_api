@@ -53,6 +53,12 @@ app.get('/', (req, res) => {
     res.send('Welcome to myFlix!');
 });
 
+// error handling middleware function logs all application-level errors to the terminal
+app.use((err, req, res, next) =>{
+    console.error(err.stack);
+    res.status(500).send('Something broke!');
+});
+
 // listening on port 8080
 app.listen(8080, () => {
     console.log('testing testing');
