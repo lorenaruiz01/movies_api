@@ -1,4 +1,6 @@
+// import express module locally
 const express = require('express');
+// declares app variable to encapsulate Express's functionality to configure web server
 const app = express();
 
 let top10Movies = [
