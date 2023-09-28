@@ -1,7 +1,11 @@
 // import express module locally
 const express = require('express');
+
 // declares app variable to encapsulate Express's functionality to configure web server
 const app = express();
+
+// import morgan middleware
+const morgan = require('morgan');
 
 let top10Movies = [
     {
