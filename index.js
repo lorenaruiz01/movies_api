@@ -23,6 +23,7 @@ let requestLogger = (req, res, next) => {
     next();
 };
 
+app.use(requestLogger);
 
 // returns json object: list of movies
 app.get('/movies', (req, res) => {
