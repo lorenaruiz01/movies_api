@@ -25,5 +25,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(8080, () => {
-    console.log('testing testing';)
+    console.log('testing testing');
 });
