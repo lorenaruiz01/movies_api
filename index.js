@@ -16,9 +16,11 @@ let top10Movies = [
     }
 ];
 
+// returns json object: list of movies
 app.get('/movies', (req, res) => {
     res.json(top10Movies);
 });
+
 
 app.get('/', (req, res) => {
     res.send('Welcome to myFlix!');
