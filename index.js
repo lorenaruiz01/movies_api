@@ -1,4 +1,4 @@
-// import express module locally
+// import express module to use locally
 const express = require('express');
 
 // declares app variable to encapsulate Express's functionality to configure web server
