@@ -28,4 +28,5 @@ app.listen(8080, () => {
     console.log('testing testing');
 });
 
+// route all requests for static files to the 'public' folder
 app.use(express.static('public'));
