@@ -26,6 +26,7 @@ app.get('/', (req, res) => {
     res.send('Welcome to myFlix!');
 });
 
+// listening on port 8080
 app.listen(8080, () => {
     console.log('testing testing');
 });
