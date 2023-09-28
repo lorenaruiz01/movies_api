@@ -23,3 +23,7 @@ app.get('/movies', (req, res) => {
 app.get('/', (req, res) => {
     res.send('Welcome to myFlix!');
 });
+
+app.listen(8080, () => {
+    console.log('testing testing';)
+});
