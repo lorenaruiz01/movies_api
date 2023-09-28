@@ -4,12 +4,6 @@ const express = require('express');
 // declares app variable to encapsulate Express's functionality to configure web server
 const app = express();
 
-// import morgan middleware
-const morgan = require('morgan');
-
-// passes Morgan functionality into app.use() function
-app.use(morgan('common'));
-
 let top10Movies = [
     {
         title: 'movie 1',
@@ -24,6 +18,12 @@ let top10Movies = [
         director: 'Yet Another Director'
     }
 ];
+
+// import morgan middleware
+const morgan = require('morgan');
+
+// passes Morgan functionality into app.use() function
+app.use(morgan('common'));
 
 // use middleware to log requests to the server
 let requestLogger = (req, res, next) => {
