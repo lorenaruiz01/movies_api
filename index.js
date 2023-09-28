@@ -18,6 +18,12 @@ let top10Movies = [
     }
 ];
 
+let requestLogger = (req, res, next) => {
+    console.log(req.url);
+    next();
+};
+
+
 // returns json object: list of movies
 app.get('/movies', (req, res) => {
     res.json(top10Movies);
