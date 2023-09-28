@@ -40,6 +40,9 @@ let requestTime = (req, res, next) => {
 app.use(requestLogger);
 app.use(requestTime)
 
+// route all requests for static files to the 'public' folder
+app.use(express.static('public'));
+
 // returns json object: list of movies
 app.get('/movies', (req, res) => {
     res.json(top10Movies);
@@ -55,5 +58,3 @@ app.listen(8080, () => {
     console.log('testing testing');
 });
 
-// route all requests for static files to the 'public' folder
-app.use(express.static('public'));
