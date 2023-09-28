@@ -24,7 +24,14 @@ let requestLogger = (req, res, next) => {
     next();
 };
 
+//
+let requestTime = (req, res, next) => {
+    req.requestTime = Date.now();
+    next();
+};
+
 app.use(requestLogger);
+app.use(requestTime)
 
 // returns json object: list of movies
 app.get('/movies', (req, res) => {
