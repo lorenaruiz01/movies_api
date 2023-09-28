@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 
-let allMovies = [
+let top10Movies = [
     {
         title: 'movie 1',
         director: 'Some Director'
