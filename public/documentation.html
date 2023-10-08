@@ -100,6 +100,34 @@
 					</code>
 					</td>
 				</tr>
+				<tr>
+					<td>Add a new user</td>
+					<td>/users</td>
+					<td>POST</td>
+					<td>A JSON object holding user data, structured like this:
+						<code>
+						{
+							"Username": "Kim",
+							"Password": "ula36ula",
+							"Email": "kim.namura@fakeema.il",
+							"Birthday": "1984-07-18"
+						}
+					</code>
+					</td>
+					<td>A JSON object holding user data plus an ID and a array for placing favorite movies:
+						<code>
+						{
+							"Username": "Kim",
+							"Password": "ula36ula",
+							"Email": "kim.namura@fakeema.il",
+							"Birthday": "1984-07-18T00:00:00.000Z",
+							"FavoriteMovies": [],
+							"_id": "64de58a81b1e8dfa2e81f5b9",
+							"__v": 0
+					}
+					</code>
+					</td>
+				</tr>
 				
 
 
