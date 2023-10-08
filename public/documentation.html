@@ -128,8 +128,35 @@
 					</code>
 					</td>
 				</tr>
+				<tr>
+					<td>Update user info</td>
+					<td>/users/:Username</td>
+					<td>PUT</td>
+					<td>A JSON object holding the user info that should be changed. It should contain at least one of the following key/value pairs:
+						<code>
+						{
+							"Username": String,
+							"Password": String,
+							"Email": String,
+							"Birthday": Data
+						}
+					</code>
+					</td>
+					<td>A JSON object holding all user info with all key/values pair updated:
+						<code>
+						{
+							"Username": "Kim-Sophie",
+							"Password": "ula36ula",
+							"Email": "kim.namura@fakeema.il",
+							"Birthday": "1984-07-18T00:00:00.000Z",
+							"FavoriteMovies": [],
+							"_id": "64de58a81b1e8dfa2e81f5b9",
+							"__v": 0
+					}
+					</code>
+					</td>
+				</tr>
 				
-
 
 
 
