@@ -45,7 +45,38 @@
 					<td>none</td>
 					<td>A JSON object holding an array with all movies.</td>
 				</tr>
+				<tr>
+					<td>Get data about a single movie by title</td>
+					<td>/movies/:Title</td>
+					<td>GET</td>
+					<td>None</td>
+					<td>A JSON object holding data about a single movie, containing description, genre, director, image URL, and
+						whether it’s featured or not property. Example:
+						<code>
+						{
+							"Title": "The French Dispatch",
+							"Description": "A love letter to journalists...",
+							"Genre": {
+								"Name": "Comedy",
+								"Description": "Is a genre of fiction that ..."
+							},
+							"Director": {
+								"Name": "Wes Anderson",
+								"Bio": "Wesley Wales Anderson was born in Houston, Texas...",
+								"Birth": 1969.0
+							},
+							"ImageURL": "https://upload.wikimedia.org/wikipedia/en/7/78/The_French_Dispatch.jpeg",
+							"Featured": false
+						}
+					</code>
+					</td>
+				</tr>
 				
+
+
+
+                
+			</tbody>
 		</table>
 
 	</div>
