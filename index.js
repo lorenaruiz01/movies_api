@@ -9,7 +9,7 @@ const express = require('express');
 
 
 
-let top10Movies = [
+let movies = [
     {
         title: 'movie 1',
         director: 'Some Director'
