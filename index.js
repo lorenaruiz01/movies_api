@@ -7,7 +7,20 @@ const express = require('express');
     // import uuid module
     uuid = require('uuid');
 
-
+let users = [
+    {
+        name: 'Sam Name',
+        username: 'samName',
+    },
+    {
+        name: 'Otter Name',
+        username: 'otterName',
+    }, 
+    {
+        name: 'Otter Otter Name',
+        username: 'otterName2'
+    }
+]
 
 let movies = [
     {
