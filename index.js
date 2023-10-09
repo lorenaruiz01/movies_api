@@ -1,4 +1,5 @@
 // import express module to use locally
+const bodyParser = require('body-parser');
 const express = require('express');
     // declares app variable to encapsulate Express's functionality to configure web server    
     app = express(), 
@@ -6,6 +7,8 @@ const express = require('express');
     bodyParser = require('body-parser'); 
     // import uuid module
     uuid = require('uuid');
+
+app.use(bodyParser.json());
 
 let users = [
     {
