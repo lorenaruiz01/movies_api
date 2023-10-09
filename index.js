@@ -64,6 +64,7 @@ app.use(requestTime)
 // route all requests for static files to the 'public' folder
 app.use(express.static('public'));
 
+// READ
 // returns json object: list of movies
 app.get('/movies', (req, res) => {
     res.json(movies);
