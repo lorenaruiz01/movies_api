@@ -50,7 +50,7 @@ app.use(express.static('public'));
 
 // returns json object: list of movies
 app.get('/movies', (req, res) => {
-    res.json(top10Movies);
+    res.json(movies);
 });
 
 // returns welcome message
