@@ -1,8 +1,13 @@
 // import express module to use locally
 const express = require('express');
+    // declares app variable to encapsulate Express's functionality to configure web server    
+    app = express(), 
+    // import body-parser module
+    bodyParser = require('body-parser'); 
+    // import uuid module
+    uuid = require('uuid');
 
-// declares app variable to encapsulate Express's functionality to configure web server
-const app = express();
+
 
 let top10Movies = [
     {
