@@ -27,15 +27,18 @@ let users = [
 let movies = [
     {
         title: 'movie 1',
-        director: 'Some Director'
+        director: 'Some Director',
+        genre: 'classic'
     },
     {
         title: 'movie 2',
-        director: 'Another Director'
+        director: 'Another Director',
+        genre: 'horror'
     },
     {
         title: 'movie 3',
-        director: 'Yet Another Director'
+        director: 'Yet Another Director',
+        genre: 'comedy'
     }
 ];
 
@@ -96,9 +99,10 @@ app.get('/movies:title', (req, res) => {
     } else {
         res.status(400).send('no such movie')
     }
-    
 });
 
+// returns movies by genre
+app.get('/movies/genre/')
 
 
 // listening on port 8080
