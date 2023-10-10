@@ -63,6 +63,13 @@ app.use(requestTime)
 // route all requests for static files to the 'public' folder
 app.use(express.static('public'));
 
+// error handling middleware function logs all application-level errors to the terminal
+app.use((err, req, res, next) =>{
+    console.error(err.stack);
+    res.status(500).send('Something broke!');
+});
+
+
 // ===========================================
 // READ requests
 
@@ -77,11 +84,7 @@ app.get('/movies', (req, res) => {
 });
 
 
-// error handling middleware function logs all application-level errors to the terminal
-app.use((err, req, res, next) =>{
-    console.error(err.stack);
-    res.status(500).send('Something broke!');
-});
+
 
 // listening on port 8080
 app.listen(8080, () => {
