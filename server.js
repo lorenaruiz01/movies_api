@@ -84,10 +84,18 @@ app.get('/movies', (req, res) => {
 });
 
 
+// returns json object: list of movies
+app.get('/movies:title', (req, res) => {
+    // const title = req.params.title;
+    // more commonly written as: 
+    const { title } = req.params;
+    res.status(200).json(movies);
+});
+
 
 
 // listening on port 8080
 app.listen(8080, () => {
-    console.log('testing testing')
+    console.log('listening on port 8080')
 });
 
