@@ -63,16 +63,19 @@ app.use(requestTime)
 // route all requests for static files to the 'public' folder
 app.use(express.static('public'));
 
-// READ
-// returns json object: list of movies
-app.get('/movies', (req, res) => {
-    res.status(200).json(movies);
-});
+// ===========================================
+// READ requests
 
 // returns welcome message
 app.get('/', (req, res) => {
     res.send('Welcome to myFlix!');
 });
+
+// returns json object: list of movies
+app.get('/movies', (req, res) => {
+    res.status(200).json(movies);
+});
+
 
 // error handling middleware function logs all application-level errors to the terminal
 app.use((err, req, res, next) =>{
