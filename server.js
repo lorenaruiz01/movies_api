@@ -89,6 +89,7 @@ app.get('/movies:title', (req, res) => {
     // const title = req.params.title;
     // more commonly written as: 
     const { title } = req.params;
+    const movie = movies.find( movie => movie.Title === title)
     res.status(200).json(movies);
 });
 
