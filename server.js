@@ -88,7 +88,7 @@ app.get('/movies', (req, res) => {
 
 
 // returns json object: movie by title
-app.get('/movies:title', (req, res) => {
+app.get('/movies/:title', (req, res) => {
     // const title = req.params.title;
     // more commonly written as: 
     const { title } = req.params;
