@@ -28,7 +28,7 @@ let movies = [
     {
         title: 'movie 1',
         director: 'Some Director',
-        genre: 'classic'
+        genre: 'horror'
     },
     {
         title: 'movie 2',
@@ -102,7 +102,10 @@ app.get('/movies/:title', (req, res) => {
 });
 
 // returns movies by genre
-app.get('/movies/genre/')
+app.get('/movies/:genre', (req, res) => {
+    const { genre } = reg.params;
+    const movie = 
+})
 
 
 // listening on port 8080
