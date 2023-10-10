@@ -1,5 +1,4 @@
 // import express module to use locally
-const bodyParser = require('body-parser');
 const express = require('express');
     // declares app variable to encapsulate Express's functionality to configure web server    
     app = express(), 
