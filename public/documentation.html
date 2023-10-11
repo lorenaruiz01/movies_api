@@ -194,20 +194,12 @@
 				</tr>
 				<tr>
 					<td>Remove a movie from user favorite list</td>
-					<td>/users/:Username/movies/:movieID</td>
+					<td>/users/:id/:movieTitle</td>
 					<td>DELETE</td>
 					<td>None</td>
-					<td>A JSON object holding all user info with all key/values pair updated:
+					<td>A message confirmation of the movie removed from user's list of favorite movies.
 						<code>
-						{
-							"Username": "Kim-Sophie",
-							"Password": "ula36ula",
-							"Email": "kim.namura@fakeema.il",
-							"Birthday": "1984-07-18T00:00:00.000Z",
-							"FavoriteMovies": [],
-							"_id": "64de58a81b1e8dfa2e81f5b9",
-							"__v": 0
-					}
+						"'movie 2' has been deleted from otterName's list of favorite movies"
 					</code>
 					</td>
 				</tr>
