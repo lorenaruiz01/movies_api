@@ -131,71 +131,64 @@
 					<td>A JSON object holding user data, structured like this:
 						<code>
 						    {
-                                id: 1,
-                                name: 'Sam Name',
-                                username: 'samName',
-                                favoriteMovies: []
+                                "name": "Mary Smith",
+                                "username": "marysFlix",
+                                "favoriteMovies": []
                             }
 					</code>
 					</td>
 					<td>A JSON object holding user data plus an ID and a array for placing favorite movies:
 						<code>
-						{
-							"Username": "Kim",
-							"Password": "ula36ula",
-							"Email": "kim.namura@fakeema.il",
-							"Birthday": "1984-07-18T00:00:00.000Z",
-							"FavoriteMovies": [],
-							"_id": "64de58a81b1e8dfa2e81f5b9",
-							"__v": 0
-					}
+                            {
+                                "name": "Mary Smith",
+                                "username": "marysFlix",
+                                "favoriteMovies": [],
+                                "id": "ef6280cc-e046-4c1f-93af-b03b21d6d29d"
+                            }
 					</code>
 					</td>
 				</tr>
 				<tr>
 					<td>Update user info</td>
-					<td>/users/:Username</td>
+					<td>/users/:id</td>
 					<td>PUT</td>
 					<td>A JSON object holding the user info that should be changed. It should contain at least one of the following key/value pairs:
 						<code>
 						{
-							"Username": String,
-							"Password": String,
-							"Email": String,
-							"Birthday": Data
+							"name": string,
+                            "username": string,
+							"password": string,
+							"Email": string,
+                            "favoriteMovies": []
 						}
+                        Example: 
+                        {   
+                            "name": "Sam Name",
+                            "username": "SamUpdatedName"
+                        }
 					</code>
 					</td>
 					<td>A JSON object holding all user info with all key/values pair updated:
 						<code>
-						{
-							"Username": "Kim-Sophie",
-							"Password": "ula36ula",
-							"Email": "kim.namura@fakeema.il",
-							"Birthday": "1984-07-18T00:00:00.000Z",
-							"FavoriteMovies": [],
-							"_id": "64de58a81b1e8dfa2e81f5b9",
-							"__v": 0
-					}
+                            {
+                                "id": 1,
+                                "name": "Sam Name",
+                                "username": "SamUpdatedName",
+                                "password": "****",
+                                "email": "someemail@email.com",
+                                "favoriteMovies": []
+                            }
 					</code>
 					</td>
 				</tr>
 				<tr>
 					<td>Add a movie to user favorite list</td>
-					<td>/users/:Username/movies/:movieID</td>
+					<td>/users/:id/:movieTitle</td>
 					<td>POST</td>
 					<td>None</td>
-					<td>A JSON object holding all user info with all key/values pair updated:
+					<td>A message confirmation of the movie added to user's list of favorite movies.
 						<code>
-						{
-							"Username": "Kim-Sophie",
-							"Password": "ula36ula",
-							"Email": "kim.namura@fakeema.il",
-							"Birthday": "1984-07-18T00:00:00.000Z",
-							"FavoriteMovies": ["64dcd768591669f639751ff8"],
-							"_id": "64de58a81b1e8dfa2e81f5b9",
-							"__v": 0
-					}
+						"'movie 2' has been added to SamUpdatedName's list of favorite movies"
 					</code>
 					</td>
 				</tr>

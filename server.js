@@ -48,18 +48,24 @@ let users = [
         id: 1,
         name: 'Sam Name',
         username: 'samName',
+        password: '****',
+        email: 'someemail@email.com',
         favoriteMovies: []
     },
     {
         id: 2,
         name: 'Otter Name',
         username: 'otterName',
+        password: '****',
+        email: 'myemail@email.com',
         favoriteMovies: ['movie 1', 'movie 2']
     }, 
     {
         id: 3,
         name: 'Otter Otter Name',
         username: 'otterName2',
+        password: '****',
+        email: 'my.email@email.com',
         favoriteMovies: ['movie 3']
     }
 ]
