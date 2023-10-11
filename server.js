@@ -175,7 +175,7 @@ app.get('/movies/genre/:genreName', (req, res) => {
 // returns data about a director
 app.get('/movies/directors/:directorName', (req, res) => {
     const { directorName } = req.params;
-    const director = movies.find( movie => movie.director.name === directorName)
+    const director = movies.find( movie => movie.director.name === directorName).director;
 
     if (director) {
         res.status(200).json(director);
