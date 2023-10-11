@@ -27,19 +27,40 @@ let users = [
 let movies = [
     {
         title: 'movie 1',
-        director: 'Some Director',
-        genre: 'horror'
+        year: '1972',
+        synopsis: ' this movie is about...',
+        director: {
+            name: 'Some Director',
+            bio: ' bio bio bio...'
+        },
+        genre: {
+            name: 'horror'
+        },
     },
     {
         title: 'movie 2',
-        director: 'Another Director',
-        genre: 'horror'
+        year: '1972',
+        synopsis: ' this movie is about...',
+        director: {
+            name: 'Another Director',
+            bio: ' bio bio bio...'
+        },
+        genre: {
+            name: 'horror'
+        },
     },
     {
         title: 'movie 3',
-        director: 'Yet Another Director',
-        genre: 'comedy'
-    }
+        year: '1972',
+        synopsis: ' this movie is about...',
+        director: {
+            name: 'Yet Another Director',
+            bio: ' bio bio bio...'
+        },
+        genre: {
+            name: 'comedy'
+        },
+    },
 ];
 
 // import morgan middleware
@@ -113,7 +134,11 @@ app.get('/movies/:genre', (req, res) => {
     }
 })
 
-
+// returns data about a director
+app.get('/movies/directors/:directorName', (req, res) => {
+    const { directorName } = req.params;
+    const director = movies.find( movie => movie.director.name === directorName)
+})
 
 
 // listening on port 8080
