@@ -48,16 +48,19 @@ let users = [
         id: 1,
         name: 'Sam Name',
         username: 'samName',
+        favoriteMovies: []
     },
     {
         id: 2,
         name: 'Otter Name',
         username: 'otterName',
+        favoriteMovies: ['movie 1', 'movie 2']
     }, 
     {
         id: 3,
         name: 'Otter Otter Name',
-        username: 'otterName2'
+        username: 'otterName2',
+        favoriteMovies: ['movie 3']
     }
 ]
 
@@ -115,22 +118,20 @@ app.post('/users', (req, res) => {
     }
 }); 
 
-// UPDATE 
+// allow a user to add a new movie to their list of favorites
+app.post('/users/:id/:movieTitle',  (req, res) => {
+    const { id, movieTitle } = req.params;
 
-// update a user 
-app.put('/users/:id', (req, res) => {
-    const { id } = req.params;
-    const updatedUser = req.body;
-
-    let user = users.find( user => user.id == id );
+    let user = users.find( user => user.id == id);
 
     if (user) {
-        user.name = updatedUser.name;
-        res.status(200).json(user) 
+        user.favoriteMovies.push(movieTitle);
+        res.status(200).json(user);
     } else {
-        res.status(400).send('no user with that id exists')
+        res.status(400).send('no such user')
     }
 })
+
 
 // READ requests ===========================================
 
@@ -183,6 +184,23 @@ app.get('/movies/directors/:directorName', (req, res) => {
     }
 })
 
+
+// UPDATE requests ===========================================
+
+// update a user 
+app.put('/users/:id', (req, res) => {
+    const { id } = req.params;
+    const updatedUser = req.body;
+
+    let user = users.find( user => user.id == id );
+
+    if (user) {
+        user.name = updatedUser.name;
+        res.status(200).json(user) 
+    } else {
+        res.status(400).send('no user with that id exists')
+    }
+})
 
 // listening on port 8080
 app.listen(8080, () => {
