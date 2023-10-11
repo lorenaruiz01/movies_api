@@ -30,7 +30,7 @@ let movies = [
         year: '1972',
         synopsis: ' this movie is about...',
         director: {
-            name: 'Some Director',
+            name: 'Sam Director',
             bio: ' bio bio bio...'
         },
         genre: {
