@@ -134,10 +134,22 @@ app.get('/movies/:title', (req, res) => {
     }
 });
 
-// READ - returns movies by genre
+// READ - returns data about a genre
 app.get('/movies/genre/:genreName', (req, res) => {
     const { genreName } = req.params;
     const moviesByGenre = movies.find( movies => movies.genre.name === genreName).genre;
+
+    if (moviesByGenre) {
+        res.status(200).json(moviesByGenre);
+    } else {
+        res.status(400).send('no information available for that genre')
+    }
+})
+
+// READ - returns movies by genre
+app.get('/movies/genre/:genreName', (req, res) => {
+    const { genreName } = req.params;
+    const moviesByGenre = movies.find( movies => movies.genre.name === genreName);
 
     if (moviesByGenre) {
         res.status(200).json(moviesByGenre);
