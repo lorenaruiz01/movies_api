@@ -153,7 +153,7 @@ app.get('/movies/genre/:genreName', (req, res) => {
 })
 
 // how can I pull a list of all movies in the same genre? This request currently only returns the first movie that matches the requested parameter.
-// READ - returns movies by genre
+// READ - returns data by genre
 app.get('/movies/genre/:genreName', (req, res) => {
     const { genreName } = req.params;
     const moviesByGenre = movies.find( movies => movies.genre.name === genreName);
