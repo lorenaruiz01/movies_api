@@ -45,14 +45,17 @@ app.use((err, req, res, next) =>{
 // ARRAYS ==================================================
 let users = [
     {
+        id: 1,
         name: 'Sam Name',
         username: 'samName',
     },
     {
+        id: 2,
         name: 'Otter Name',
         username: 'otterName',
     }, 
     {
+        id: 3,
         name: 'Otter Otter Name',
         username: 'otterName2'
     }
