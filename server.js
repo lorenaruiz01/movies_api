@@ -104,20 +104,20 @@ let movies = [
 ];
 
 
-// READ requests ===========================================
+// CRUD requests ===========================================
 
-// returns welcome message
+// READ - returns welcome message
 app.get('/', (req, res) => {
     res.send('Welcome to myFlix!');
 });
 
-// returns json object: list of movies
+// READ - returns json object: list of movies
 app.get('/movies', (req, res) => {
     res.status(200).json(movies);
 });
 
 
-// returns json object: movie by title
+// READ - returns json object: movie by title
 app.get('/movies/:title', (req, res) => {
     // const title = req.params.title;
     // more commonly written as: 
@@ -131,7 +131,7 @@ app.get('/movies/:title', (req, res) => {
     }
 });
 
-// returns movies by genre
+// READ - returns movies by genre
 app.get('/movies/genre/:genreName', (req, res) => {
     const { genreName } = req.params;
     const moviesByGenre = movies.find( movies => movies.genre.name === genreName);
@@ -143,7 +143,7 @@ app.get('/movies/genre/:genreName', (req, res) => {
     }
 })
 
-// returns data about a director
+// READ - returns data about a director
 app.get('/movies/directors/:directorName', (req, res) => {
     const { directorName } = req.params;
     const director = movies.find( movie => movie.director.name === directorName).director;
@@ -156,9 +156,7 @@ app.get('/movies/directors/:directorName', (req, res) => {
 })
 
 
-// CREATE requests =========================================
-
-// add a new user 
+// CREATE - add a new user 
 app.post('/users', (req, res) => {
     const newUser = req.body;
 
