@@ -100,6 +100,14 @@ let movies = [
 // CREATE requests =========================================
 app.post('/users', (req, res) => {
     const newUser = req.body;
+
+    if (newUser.name) {
+        newUser.id = uuid.v4();
+        users.push(newUser);
+        res.status(201).json(newUser)
+    } else {
+        res.status(400).send('please include new user name')
+    }
 }); 
 
 // READ requests ===========================================
