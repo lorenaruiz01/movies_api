@@ -124,7 +124,7 @@ app.get('/movies/:title', (req, res) => {
 
 // returns movies by genre
 app.get('/movies/genre/:genreName', (req, res) => {
-    const { genreName } = reg.params;
+    const { genreName } = req.params;
     const moviesByGenre = movies.find( movies => movies.genre.name === genreName);
 
     if (moviesByGenre) {
