@@ -1,3 +1,5 @@
+// IMPORT MODULES ==========================================
+
 // import express module to use locally
 const express = require('express');
     // declares app variable to encapsulate Express's functionality to configure web server    
@@ -9,6 +11,38 @@ const express = require('express');
 
 app.use(bodyParser.json());
 
+// import morgan middleware
+const morgan = require('morgan');
+
+// passes Morgan functionality into app.use() function
+app.use(morgan('common'));
+
+// use middleware to log requests to the server
+let requestLogger = (req, res, next) => {
+    console.log(req.url);
+    next();
+};
+
+// adds a property to the request object that’s been set to the timestamp of the request
+let requestTime = (req, res, next) => {
+    req.requestTime = Date.now();
+    next();
+};
+
+app.use(requestLogger);
+app.use(requestTime)
+
+// route all requests for static files to the 'public' folder
+app.use(express.static('public'));
+
+// error handling middleware function logs all application-level errors to the terminal
+app.use((err, req, res, next) =>{
+    console.error(err.stack);
+    res.status(500).send('Something broke!');
+});
+
+
+// ARRAYS ==================================================
 let users = [
     {
         name: 'Sam Name',
@@ -63,39 +97,12 @@ let movies = [
     },
 ];
 
-// import morgan middleware
-const morgan = require('morgan');
+// CREATE requests =========================================
+app.post('/users', (req, res) => {
+    const newUser = req.body;
+}); 
 
-// passes Morgan functionality into app.use() function
-app.use(morgan('common'));
-
-// use middleware to log requests to the server
-let requestLogger = (req, res, next) => {
-    console.log(req.url);
-    next();
-};
-
-// adds a property to the request object that’s been set to the timestamp of the request
-let requestTime = (req, res, next) => {
-    req.requestTime = Date.now();
-    next();
-};
-
-app.use(requestLogger);
-app.use(requestTime)
-
-// route all requests for static files to the 'public' folder
-app.use(express.static('public'));
-
-// error handling middleware function logs all application-level errors to the terminal
-app.use((err, req, res, next) =>{
-    console.error(err.stack);
-    res.status(500).send('Something broke!');
-});
-
-
-// ===========================================
-// READ requests
+// READ requests ===========================================
 
 // returns welcome message
 app.get('/', (req, res) => {
