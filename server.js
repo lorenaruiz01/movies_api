@@ -104,11 +104,11 @@ app.get('/movies/:title', (req, res) => {
 // returns movies by genre
 app.get('/movies/genre/:genreName', (req, res) => {
     const { genreName } = reg.params;
-    const moviesbyGenre = movies.find( movies => movies.genre.name === genre)
+    const moviesByGenre = movies.find( movies => movies.genre === genreName);
 })
 
-    if (moviesbyGenre) {
-        res.status(200).json(moviesbyGenre)
+    if (moviesByGenre) {
+        res.status(200).json(moviesByGenre)
     } else {
         res.status(400).send('no movies in that genre')
     }
