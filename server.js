@@ -219,6 +219,20 @@ app.delete('/users/:id/:movieTitle',  (req, res) => {
 })
 
 
+// allow a user to deregister
+app.delete('/users/:id',  (req, res) => {
+    const { id } = req.params;
+
+    let user = users.find( user => user.id == id);
+
+    if (user) {
+        users = users.find( user => user.id != id);
+        res.status(200).send(`user ${user.username}'s account has been deleted`);
+    } else {
+        res.status(400).send('no such user')
+    }
+})
+
 // listening on port 8080
 app.listen(8080, () => {
     console.log('listening on port 8080')
