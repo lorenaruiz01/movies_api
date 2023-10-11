@@ -192,7 +192,7 @@ app.post('/users', (req, res) => {
 }); 
 
 
-// UPDATE - allow a user to update their username 
+// UPDATE - allow a user to update their username. Can this be done using the username as the parameter instead of the id?
 app.put('/users/:id', (req, res) => {
     const { id } = req.params;
     const updatedUser = req.body;
