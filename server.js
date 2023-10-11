@@ -138,6 +138,12 @@ app.get('/movies/genre/:genreName', (req, res) => {
 app.get('/movies/directors/:directorName', (req, res) => {
     const { directorName } = req.params;
     const director = movies.find( movie => movie.director.name === directorName)
+
+    if (director) {
+        res.status(200).json(director);
+    } else {
+        res.status(400).send('so director by that name')
+    }
 })
 
 
