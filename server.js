@@ -102,11 +102,16 @@ app.get('/movies/:title', (req, res) => {
 });
 
 // returns movies by genre
-app.get('/movies/:genre', (req, res) => {
-    const { genre } = reg.params;
-    const movie = 
+app.get('/movies/genre/:genreName', (req, res) => {
+    const { genreName } = reg.params;
+    const moviesbyGenre = movies.find( movies => movies.genre.name === genre)
 })
 
+    if (moviesbyGenre) {
+        res.status(200).json(moviesbyGenre)
+    } else {
+        res.status(400).send('no movies in that genre')
+    }
 
 // listening on port 8080
 app.listen(8080, () => {
