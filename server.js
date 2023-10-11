@@ -103,35 +103,6 @@ let movies = [
     },
 ];
 
-// CREATE requests =========================================
-
-// add a new user 
-app.post('/users', (req, res) => {
-    const newUser = req.body;
-
-    if (newUser.name) {
-        newUser.id = uuid.v4();
-        users.push(newUser);
-        res.status(201).json(newUser)
-    } else {
-        res.status(400).send('please include new user name')
-    }
-}); 
-
-// allow a user to add a new movie to their list of favorites
-app.post('/users/:id/:movieTitle',  (req, res) => {
-    const { id, movieTitle } = req.params;
-
-    let user = users.find( user => user.id == id);
-
-    if (user) {
-        user.favoriteMovies.push(movieTitle);
-        res.status(200).send(`${movieTitle} has been added to ${user.username}'s list of favorite movies`);
-    } else {
-        res.status(400).send('no such user')
-    }
-})
-
 
 // READ requests ===========================================
 
@@ -185,9 +156,23 @@ app.get('/movies/directors/:directorName', (req, res) => {
 })
 
 
-// UPDATE requests ===========================================
+// CREATE requests =========================================
 
-// update a user 
+// add a new user 
+app.post('/users', (req, res) => {
+    const newUser = req.body;
+
+    if (newUser.name) {
+        newUser.id = uuid.v4();
+        users.push(newUser);
+        res.status(201).json(newUser)
+    } else {
+        res.status(400).send('please include new user name')
+    }
+}); 
+
+
+// UPDATE - allow a user to update their username 
 app.put('/users/:id', (req, res) => {
     const { id } = req.params;
     const updatedUser = req.body;
@@ -195,16 +180,30 @@ app.put('/users/:id', (req, res) => {
     let user = users.find( user => user.id == id );
 
     if (user) {
-        user.name = updatedUser.name;
+        user.username = updatedUser.username;
         res.status(200).json(user) 
     } else {
         res.status(400).send('no user with that id exists')
     }
 })
 
+// UPDATE - allow a user to add a new movie to their list of favorites
+app.post('/users/:id/:movieTitle',  (req, res) => {
+    const { id, movieTitle } = req.params;
 
-// DELETE requests ===========================================
-// allow a user to remove a movie from their list of favorites
+    let user = users.find( user => user.id == id);
+
+    if (user) {
+        user.favoriteMovies.push(movieTitle);
+        res.status(200).send(`${movieTitle} has been added to ${user.username}'s list of favorite movies`);
+    } else {
+        res.status(400).send('no such user')
+    }
+})
+
+
+
+// DELETE - allow a user to remove a movie from their list of favorites
 app.delete('/users/:id/:movieTitle',  (req, res) => {
     const { id, movieTitle } = req.params;
 
@@ -219,7 +218,7 @@ app.delete('/users/:id/:movieTitle',  (req, res) => {
 })
 
 
-// allow a user to deregister
+// DELETE - allow a user to deregister
 app.delete('/users/:id',  (req, res) => {
     const { id } = req.params;
 
