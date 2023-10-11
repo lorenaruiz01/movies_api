@@ -202,6 +202,23 @@ app.put('/users/:id', (req, res) => {
     }
 })
 
+
+// DELETE requests ===========================================
+// allow a user to remove a movie from their list of favorites
+app.delete('/users/:id/:movieTitle',  (req, res) => {
+    const { id, movieTitle } = req.params;
+
+    let user = users.find( user => user.id == id);
+
+    if (user) {
+        user.favoriteMovies = user.favoriteMovies.filter( title => title !== movieTitle);
+        res.status(200).send(`${movieTitle} has been deleted from ${user.username}'s list of favorite movies`);
+    } else {
+        res.status(400).send('no such user')
+    }
+})
+
+
 // listening on port 8080
 app.listen(8080, () => {
     console.log('listening on port 8080')
