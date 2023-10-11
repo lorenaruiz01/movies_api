@@ -74,7 +74,8 @@ let movies = [
             bio: ' bio bio bio...'
         },
         genre: {
-            name: 'horror'
+            name: 'horror',
+            description: 'The genre of horror encompasses many styles...'
         },
     },
     {
@@ -86,7 +87,8 @@ let movies = [
             bio: ' bio bio bio...'
         },
         genre: {
-            name: 'horror'
+            name: 'horror',
+            description: 'The genre of horror encompasses many styles...'
         },
     },
     {
@@ -98,7 +100,8 @@ let movies = [
             bio: ' bio bio bio...'
         },
         genre: {
-            name: 'comedy'
+            name: 'comedy',
+            description: 'Comedy is a genre loved by many for its ability to....'
         },
     },
 ];
@@ -134,7 +137,7 @@ app.get('/movies/:title', (req, res) => {
 // READ - returns movies by genre
 app.get('/movies/genre/:genreName', (req, res) => {
     const { genreName } = req.params;
-    const moviesByGenre = movies.find( movies => movies.genre.name === genreName);
+    const moviesByGenre = movies.find( movies => movies.genre.name === genreName).genre;
 
     if (moviesByGenre) {
         res.status(200).json(moviesByGenre);
