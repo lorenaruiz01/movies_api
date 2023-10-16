@@ -72,6 +72,7 @@ let users = [
 ]
 
 // reminder: add release year to postgresSQL database
+// change desbription column title to synopsis or summary
 let movies = [
     {
         title: 'movie 1',
