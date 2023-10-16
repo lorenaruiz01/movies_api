@@ -43,6 +43,7 @@ app.use((err, req, res, next) =>{
 
 
 // ARRAYS ==================================================
+// reminder: add DOB
 let users = [
     {
         id: 1,
