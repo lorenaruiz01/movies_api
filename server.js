@@ -154,6 +154,7 @@ app.get('/movies/genre/:genreName', (req, res) => {
 
 // how can I pull a list of all movies in the same genre? This request currently only returns the first movie that matches the requested parameter.
 // Answer: Instead of find you can use filter to return all matching results. find only returns the first matching item.
+// const moviesByGenre = movies.filter( movies => movies.genre.name === genreName);
 
 // READ - returns data by genre
 app.get('/movies/genre/:genreName', (req, res) => {
