@@ -197,7 +197,7 @@ app.post('/users', (req, res) => {
 
 // UPDATE - allow a user to update their username. 
 // Can this be done using the username as the parameter instead of the id?
-// Answer: 
+// Answer: Yes, its totally possible to do it based on username too but in API design its a standard practice to use UUID instead. There can be all sorts of issue with username. For eg. privacy issue if the username is linked to user's identity.
 
 app.put('/users/:id', (req, res) => {
     const { id } = req.params;
